@@ -1,0 +1,65 @@
+CREATE TABLE departments1 (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50),
+    location VARCHAR(50)
+);
+
+CREATE TABLE employees2 (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    salary INT,
+    dept_id INT,
+    manager_id INT,
+    hire_date DATE,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+);
+INSERT INTO departments1 VALUES
+(1, 'IT', 'Indore'),
+(2, 'HR', 'Bhopal'),
+(3, 'Finance', 'Indore'),
+(4, 'Sales', 'Pune');
+INSERT INTO employees2 VALUES
+(101, 'Amit', 60000, 1, NULL, '2022-01-15'),
+(102, 'Neha', 55000, 1, 101, '2022-03-10'),
+(103, 'Ravi', 45000, 2, 101, '2023-06-01'),
+(104, 'Priya', 70000, 3, 101, '2021-11-20'),
+(105, 'Ankit', 40000, NULL, 102, '2024-01-05'),
+(106, 'Suman', 65000, 1, 102, '2022-09-12'),
+(107, 'Vijay', 30000, 4, 103, '2024-02-18'),
+(108, 'Kiran', 75000, 3, 104, '2020-05-25');
+
+select e2.emp_name,d1.dept_name from departments as d1 inner join employees2 as e2 on d1.dept_id=e2.dept_id; -- 1
+select e2.* from departments1 as d1 left join employees2 as e2 on d1.dept_id=e2.dept_id; -- 2
+select d1.* from departments1 as d1 right join employees2 as e2 on d1.dept_id=e2.dept_id; -- 3
+
+select * from departments1 as d1 left join employees2 as e2 on d1.dept_id=e2.dept_id union  -- 4
+select * from departments1 as d1 right join employees2 as e2 on d1.dept_id=e2.dept_id; 
+
+select * from departments1 cross join employees2 ; -- 5
+select e1.emp_name,e2.manager_id from employees2 as e1 join employees2 as e2 on e1.dept_id=e2.dept_id; -- 6
+
+
+select * from departments1 as d1 left join employees2 as e2 on d1.dept_id=e2.dept_id where dept_name is null; -- 7
+
+select count(e1.emp_name) from employees2 as e1 join employees2 as e2 on e1.dept_id=e2.dept_id ; -- 8
+
+
+select emp_name from employees2 where dept_id = (select dept_id from departments1 where dept_name = 'IT'); -- 9
+select * from employees2 where salary > (select avg(salary) from employees2); -- 10
+select * from employees2 where salary = (select max(salary) from employees2 where salary = (select max(salary) from employees2)); -- 11
+
+create view it_employees_view as
+select * from departments1 where dept_name='IT'; -- 12
+
+select * from it_employees_view;
+
+create index idx_name on
+employees2(emp_name); -- 13
+
+show index from employees2; -- 14
+drop index idx_name;
+
+select * from employees2;
+select emp_name,avg(salary) over(partition by dept_id) from employees2; -- 15
+select *,rank() over(order by salary) from employees2; -- 16
+select *,lag(emp_name) over(order by hire_date desc) from employees2;  -- 17

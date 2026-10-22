@@ -1,0 +1,77 @@
+select * from employees1 where salary >= 30000; -- Q1
+select * from employees1 where age <=25; -- Q2
+select * from employees1 where department="hr"; -- Q3
+select * from employees1 where department="hr" and salary>=25000; -- Q4
+select * from employees1 where department in ("HR","IT"); -- Q5
+select * from employees1 where salary!=25000; -- Q6
+select * from employees1 where salary between 20000 and 50000; -- Q7
+select * from employees1 where department = "HR" or department = "Sales"; -- Q8
+select * from employees1 where name like "a%"; -- Q9
+select * from employees1 where name like "%n"; -- Q10
+select * from employees1 where name like "%a%"; -- Q11
+select * from employees1 where salary is null; -- Q12
+select count(*) from employees1; -- Q13
+select sum(salary) from employees1 ; -- Q14
+select avg(salary) from employees1; -- Q15
+select max(salary) from employees1; -- Q16
+select count(*),department from employees1 group by department; -- Q17
+-- select * from employees1 where department ; -- Q18
+select curdate(); -- Q19
+select curtime(); -- Q20
+select now(); -- Q21
+select year(doj) from employe3; -- Q22
+select month(doj) from employe3; -- Q23
+
+select * from employees;
+select * from departments;
+select * from employees as emp inner join departments as dept on emp.dept_id = dept.dept_id; -- Q24
+select * from employees as emp left join departments as dept on emp.dept_id = dept.dept_id; -- Q25
+select * from employees as emp right join departments as dept on emp.dept_id = dept.dept_id; -- Q26
+
+alter table employees
+drop manager;
+
+
+
+
+select r.emp_name,r.dept_id,s.emp_id from employees as r join employees as s on r.dept_id = s.emp_id; -- Q27
+
+create table pr(
+name varchar(80) primary key,
+age int);
+desc pr; -- Q28
+
+create table lp(
+name varchar(80),
+age int,
+foreign key(name) references pr(name)); -- Q29
+
+desc lp;
+
+create table lok(
+name varchar(80) unique,
+age int);
+desc lok; -- Q30
+
+create table cpk_t(
+name varchar(50),
+age int,
+surname varchar(50),
+primary key(name,age)
+); -- Q31
+desc cpk_t;
+
+create table candi( -- Q32
+name varchar(50) primary key,
+age int,
+surname varchar(50),
+unique(name,age)
+);
+desc candi;
+
+select * from employees1 order by salary desc limit 3; -- Q33
+select * from employees1 order by salary desc limit 1 offset 1; -- Q34
+select * from employees1 order by name; -- Q35
+select distinct(department) from employees1; -- Q36
+select * from employees1 where age>25; -- Q37
+select * from employe3 where doj>=2023; -- Q38

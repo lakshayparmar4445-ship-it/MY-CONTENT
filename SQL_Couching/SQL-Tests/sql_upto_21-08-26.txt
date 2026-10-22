@@ -1,0 +1,977 @@
+----------------------------------------------------------------------------------DAY-1-----------------------------------------------------------------------------------------------------
+
+#Sql - sql stands for structured query language , use for structured data which exists in rows and columns ,
+ to manipulate,update,create,delete,alter,retrive data we use this query language known as sql, all data is stored in tables which exists in schema or databases.
+
+
+#database : is a place or medium where we can store the data in a systematic and organised manner or database we can perform some basic operation such like
+
+1.Create/insert -> table create -> insert
+2.read/retrieve -> data fetch
+3. modify/update -> update
+4. drop/delete -> delete
+
+
+#Categories of database :- MySQL, PostgreSQL and MongoDb
+
+#DBMS :- database management system , it is a software which is used to maintain and manage the database, security and authorisation are the two imp features provided by dbms, dbms stores the data in the form of files and docs.we use query language to interact with DBMS software.
+
+
+#rdbms :- relational database management system , it is the basic for SQL and for all modern database systems such as ms sql server, IBM db2, oracle , MySQL, and Microsoft access. the data in rdbms is stored in database obj's called tables a table is a collection of related data entries and it consists of rows and columns.
+
+
+#where data is stored
+#hierearchy 
+
+Cloud/Computer Server
+  |
+Databases
+  |
+Tables
+  |
+Rows and columns
+  |
+Actual Data
+
+
+#Types of Database/DBMS:-
+
+1.MySQl
+2.MariaDB
+3.PostgreSQL
+4.Oracle
+5.SQL Server
+6.SQLite
+
+
+#SQL Classification
+
+SQl is classified into the following categories.
+
+DDL- Data Definition language 
+DML - Data Manipulation Language
+TCL - Transaction control language
+DQL - Data Control Language
+DCL- Data control Language
+
+
+#DDL(used to define structure of the data in the database) :-
+ Create(create a new obj(table,procedure,function,view), 
+ALter, 
+DROP, 
+TRuncate
+
+#DML(used to manage data within a database obj, it allows manipulation and querying the existing databse schema objs . the following table lists DML statements.:-
+Insert(insert new data in a table),
+UPdate(update existing records of table),
+DElete(delete existing records in table).
+
+#TCL(used to finalize the changes in the data made by executing the dml statements.:- 
+Commit(permanently save transaction changes to the database),
+rollback(restore database to its original state since the last commit.),
+Savepoint(Create a SAvepoint to be later used by ROLLBACK Cmd to undo changes up to that point.)
+
+#DQL(used to fetch data from the database.the main cmd is SELECT, which retrieves records based on the query) :- 
+SELECT(used to retrieve data from the database)
+
+#DCL(used to enforce database security by giving privileges to different users to access the database. :- 
+Grant(Gives privilages to the user for accesssing data), 
+Revoke(take back given privilages from the user).
+
+-----------------------------------------------------------------DAY-2----------------------------------------------------------------------------------------------------------------------
+
+#SQL Data Types
+in sql, each column must be assigned a data type that defines the kind of data it stores, such as integers,dates, text or binary values .choseing the correct data type is imp for data integrity, wquery performance and efficient indexing.
+
+
+most imp basic sql datatypes
+Datatypes   use
+INT         integer no
+VARHAR	    text/string
+FLOAT       decimal no
+DATE        data values
+BOOLEAN     true/false
+
+
+
+Clauses in SQL
+Clauses are special conditions/keywords used in sql queries
+they help us:
+
+filter data
+sort data
+group data
+limit data
+
+
+Easy Defination 
+"Clauses are used to add condition and extra functionality in sql queries."
+
+
+Most important sql clauses 
+
+Clause     USE
+
+SELECT    choose columns
+FROM      choose table
+WHERE     filter rows
+ORDER BY  sort data
+GROUP BY  group same data
+HAvING    conditions on groups
+LIMIT     limit rows
+
+
+Characteristics of NULL
+
+if a column in a row has no value , then the column is said to be null , or to contain a null.you should use a null value, when the actual value is not known or when a value would not be meaningful .
+
+
+NULL means empty
+it does not ocuppy any space or memeory.
+it does not represent zero or space.
+NULL does not have any ASCII value as it is not a character.
+
+
+What are Contraints and types of constraints?
+these are the rules which are used to validate the data into a given column.
+
+Types of Constraints-
+1.Unique
+2.Not null
+3.Check
+4.primary key
+5.forign key
+ 
+
+===================================================Practice===============================================================
+
+
+
+create database debugshala;
+use debugshala;
+show databases;
+
+#table employee---------------------------------------------------------------------------------------------------
+
+create table Employee(
+EmpId int,
+first_name varchar(50),
+last_name varchar(50),
+salary int(11),
+DeptId varchar(70)
+);
+
+show databases;
+show tables;
+
+desc employee;
+desc students;
+
+
+alter table employee
+modify DeptId varchar(20);
+
+
+insert into employee values(1,"khushi","soni",25000,"IT"); 
+
+select * from employee; 
+
+insert into employee values
+(2,'rahul','sharma',25000,'HR'),
+(3,'priya','verma',60000,'IT'),
+(4,'amit','singh',55000,'Sales'),
+(5,'neha','patel',45000,'Marketing'),
+(6,'ravi','verma',30000,'Sales');
+
+select * from employee;
+
+#table departments-------------------------------------------------------------------------------------------------------------
+
+create table departments (
+    dept_id int primary key,
+    dept_name varchar(50),
+    location varchar(50)
+);
+
+insert into departments values
+(1,'hr','delhi'),
+(2,'finance','mumbai'),
+(3,'it','pune'),
+(4,'marketing','jaipur'),
+(5,'sales','indore'),
+(6,'support','bhopal'),
+(7,'operations','chennai'),
+(8,'legal','kolkata'),
+(9,'admin','lucknow'),
+(10,'research','hyderabad');
+
+select * from departments;
+
+#table products---------------------------------------------------------------------------------
+
+create table products (
+    product_id int primary key,
+    product_name varchar(50),
+    price int,
+    category varchar(50)
+);
+
+insert into products values
+(1,'laptop',55000,'electronics'),
+(2,'mouse',700,'electronics'),
+(3,'keyboard',1200,'electronics'),
+(4,'chair',3500,'furniture'),
+(5,'table',5000,'furniture'),
+(6,'bottle',400,'kitchen'),
+(7,'bag',1800,'fashion'),
+(8,'watch',2500,'fashion'),
+(9,'phone',22000,'electronics'),
+(10,'printer',9000,'electronics');
+
+select * from products;
+
+#table customers--------------------------------------------------------------------------------------------
+
+create table customers (
+    customer_id int primary key,
+    customer_name varchar(50),
+    city varchar(50),
+    phone varchar(15)
+);
+
+insert into customers values
+(1,'arjun','delhi','9876543210'),
+(2,'riya','mumbai','9876543211'),
+(3,'vivek','pune','9876543212'),
+(4,'meena','jaipur','9876543213'),
+(5,'ankit','indore','9876543214'),
+(6,'nisha','bhopal','9876543215'),
+(7,'tarun','lucknow','9876543216'),
+(8,'komal','hyderabad','9876543217'),
+(9,'sahil','nagpur','9876543218'),
+(10,'isha','chennai','9876543219');
+
+select * from customers;
+
+#table orders-------------------------------------------------------------------------------------------
+
+create table orders (
+    order_id int primary key,
+    customer_name varchar(50),
+    product_name varchar(50),
+    quantity int
+);
+
+insert into orders values
+(1,'arjun','laptop',1),
+(2,'riya','mouse',2),
+(3,'vivek','keyboard',1),
+(4,'meena','chair',2),
+(5,'ankit','table',1),
+(6,'nisha','phone',1),
+(7,'tarun','watch',2),
+(8,'komal','bag',1),
+(9,'sahil','printer',1),
+(10,'isha','bottle',4);
+
+select * from orders;
+
+#---------------------------------------------------finish asignment------------------------------------------------------------------------
+
+select * from employee where salary > 50000;
+select last_name from employee;
+
+SET SQL_SAFE_UPDATES = 0;
+
+update employee
+set salary=20000
+where EmpId=2;
+
+select * from employee;
+
+update employee
+set empid=10
+where first_name="neha";
+
+
+delete from employee where EmpId=6;
+
+insert into employee values
+(6,"Ravi","Sharma",null,"IT");
+
+insert into employee values
+(7,"pooja","verma",25000,null);
+
+
+select * from employee where salary = null;
+
+create table students(
+id int,
+name varchar(40),
+age int(2),
+city varchar(50)
+);
+
+desc students;
+
+select * from students;
+
+insert into students values(1,"lakshay parmar","CSE-DS","lakshay@gmail.com",6657965567),
+(2,"pranjal gai","CSE-DS","pranjal@gmail.com",6657470567),
+(3,"ashutosh dhakde","CSE","ashutosh@gmail.com",6658585567),
+(4,"bhavesh joshi","CSE-IT","bhavesh@gmail.com",6657585678);
+
+
+use debugshala;
+show tables;
+select * from employee;
+
+alter table employee add email varchar(20);
+
+alter table employee drop column last_name;
+
+select * from employee;
+
+update employee SET email = 'lakshay@gmail.com' where EmpId = 1;
+update employee SET email = 'pranjal@gmail.com' WHERE EmpId = 2;
+update employee SET email = 'rohit@gmail.com'   WHERE EmpId = 3;
+update employee SET email = 'ankit@gmail.com'   WHERE EmpId = 4;
+update employee SET email = 'raja@gmail.com'    WHERE EmpId = 10;
+update employee SET email = 'pranav@gmail.com'  WHERE EmpId = 6;
+update employee SET email = 'shanti@gmail.com'  WHERE EmpId = 7;
+
+alter table products
+add brand varchar(50);
+
+
+select * from products;
+
+alter table products
+rename column stock_quality to stock_quantity;
+
+-- truncate table products;
+
+insert into products values
+(1,"iphone 15",79999,"Electronics",25,"Apple"),
+(2,"Samsung TV 43",32999,"Electronics",15,"Samsung"),
+(3,"Nike Running Shoes",4999,"Footwear",50,"Nike"),
+(4,"Levi's Jeans",2499,"Clothing",100,"Levis"),
+(5,"Sony Headphones",8999,"Electronics",30,"Sony"),
+(6,"Adidas T-shirt",1299,"Clothing",80,"Adidas"),
+(7,"Dell Laptop",55999,"Electronics",10,"Dell"),
+(8,"Puma Backpack",1999,"Accessories",40,"Puma"),
+(9,"HP Printer",12999,"Electronics",12,"HP"),
+(10,"Boat Smartwatch",2999,"Electronics",60,"Boat");
+
+alter table products
+rename column product_id to product_ids;
+
+rename table products to product;
+
+select * from product;
+desc product;
+
+alter table product
+modify product_name varchar(20);
+
+show tables;
+
+truncate table students;
+
+select * from students;
+
+drop table students;
+
+show databases;
+
+drop database ipsemployee;
+
+
+CREATE TABLE student_marksheet (
+    roll_no INT PRIMARY KEY,
+    student_name VARCHAR(50),
+    class_section VARCHAR(10),
+    marks INT,
+    age INT,
+    admission_date DATE
+);
+
+INSERT INTO student_marksheet VALUES
+(1, 'Rahul Sharma', 'A', 85, 16, '2023-06-15'),
+(2, 'Priya Singh', 'B', 92, 15, '2023-06-10'),
+(3, 'Aman Verma', 'A', 78, 17, '2023-07-01'),
+(4, 'Sneha Patel', 'C', 92, 16, '2023-06-20'),
+(5, 'Vikram Rao', 'B', 65, 15, '2023-06-05'),
+(6, 'Divya Soni', 'A', 88, 16, '2023-06-25'),
+(7, 'Karan Mehta', 'C', 55, 17, '2023-07-10'),
+(8, 'Anjali Gupta', 'B', 78, 15, '2023-06-08'),
+(9, 'Rohan Das', 'A', 45, 16, '2023-07-05'),
+(10, 'Neha Joshi', 'C', 88, 15, '2023-06-12');
+
+select * from student_marksheet order by age asc;
+
+select * from student_marksheet order by age,student_name;
+
+select * from student_marksheet where class_section='A' order by marks desc limit 1;
+
+select count(*) from student_marksheet;
+
+select sum(marks) from student_marksheet;
+
+
+select avg(salary) from employee;
+
+select min(marks) from student_marksheet;
+
+select min(marks),max(marks),avg(marks) from student_marksheet;
+
+select min(marks),max(marks),avg(marks) from student_marksheet group by class_section;
+
+select min(marks) as min_marks,max(marks) as max_marks,avg(marks) as avg_marks from student_marksheet group by class_section;
+
+select deptid,count(*) as total_emp from employee group by deptId having count(*)>2;
+
+create table students(
+id int(10),
+name varchar(20) not null
+);
+
+desc students;
+
+insert into students values
+(101,"khushi"),
+(102,"badbu");
+
+CREATE TABLE stu (
+    id INT(10) UNIQUE,
+    name VARCHAR(20)
+);
+
+
+insert into stu values
+(101,"khushi"),
+(102,"badbu");
+
+
+select * from stu;
+
+
+create table school(
+id int primary key,
+name varchar(50) unique not null); 
+
+desc school;
+
+create table voting(
+id int primary key,
+name varchar(20) not null,
+age int check(age>=18));
+
+
+
+insert into voting 
+values (101,"blah",18),
+(102,"bhavesh",18);
+
+
+create table department(
+id int primary key,
+name varchar(20) unique not null,
+age int check(age>=18));
+
+create table cpk(
+id int,
+name varchar(50),
+primary key(id,name)
+);
+
+select * from cpk;
+
+insert into cpk values(101,"sakshi");
+insert into cpk values(102,"lokesh");
+insert into cpk values(103,"sakshi");
+insert into cpk values(101,"sakshi");
+
+select * from cpk where id = 101;
+
+
+create table clg(
+id int primary key,
+name varchar(50)
+);
+
+create table studentss(
+id int primary key,
+name varchar(50) ,
+clg_id int,
+foreign key(clg_id) references clg(id)
+);
+
+drop table studentss;
+
+create table kk(
+id int,
+name varchar(20),
+kk_id int,
+foreign key(kk_id) references studentss(id));
+
+
+insert into clg values(101,"pranjal");
+insert into clg values(102,"lokesh");
+
+insert into studentss values(1001,"Ips",101);
+
+
+select * from clg,studentss;
+
+
+create table nn(
+id int,
+name varchar(50),
+age int,
+gender varchar(50) default "male"
+);
+
+insert into nn(id,name,age) values(101,"lakshay",21);
+
+select * from nn;
+
+select curdate();
+select curtime();
+select now();
+select sysdate();
+
+-- drop table date;
+
+
+create table date(
+id int,
+date date);
+
+insert into date values(1,"2026-10-10");
+select * from date;
+
+select year(date) as yr from date;
+select hour(date) as hr from date;
+select month(date) as month from date;
+select day(date) as day from date;
+
+create table dts(
+id int,
+order_details datetime
+);
+
+insert into dts values
+(1,"2020-04-17 06-30-00");
+
+select hour(order_details) from dts;
+select minute(order_details) from dts;
+select second(order_details) from dts;
+
+select concat(id," ",order_details) from dts;
+select datediff("2024-11-07","2024-11-01") as datediff;
+select date_add("2024-11-01",interval 7 day);
+select extract(year from "2024-11-01") as yearextra;
+
+
+create table employee2(
+id int,
+joining_date date,
+joining_time time
+);
+alter table employee2
+add end_date date;
+
+SET SQL_SAFE_UPDATES = 0;
+
+update employee2
+set end_date="2026-10-14"
+where id=1;
+
+update employee2
+set end_date="2026-10-17"
+where id=2;
+
+select * from employee2;
+
+insert into employee2 values
+(2,"2024-10-01","10:40:06");
+
+select concat(joining_date," ",joining_time) as joining_datetime from employee2;
+select joining_date,end_date,datediff(end_date,joining_date) from employee2;
+
+
+select 10*3;
+select 10-3;
+
+select 10+3;
+select 10/3;
+select 10%3;
+
+select * from employee;
+select salary,first_name from employee where salary=25000;
+select salary,first_name from employee where salary!=25000;
+
+
+select * from employee where deptid="IT" and salary>=25000;
+select * from employee where deptid="IT" or salary>=25000;
+select * from employee where  not salary>=25000;
+
+select * from employee where salary between 25000 and 55000;
+select * from employee where salary not between 25000 and 55000;
+
+select * from employee where deptid in ("HR","Marketing");
+select * from employee where deptid not in ("HR","Marketing");
+
+select * from employee where first_name like "%n%";
+select * from employee where first_name like "r____";
+select * from employee where first_name like "n%";
+select * from employee where deptid is null;
+
+
+
+
+use debugshala;
+
+create table employe3(
+empid int,
+ename varchar(50),
+dept varchar(50),
+salary int,
+doj date,
+dob date);
+desc employe3;
+
+alter table employe3
+add email varchar(50);
+
+alter table employe3
+modify ename varchar(40);
+
+alter table employe3
+drop email;
+
+insert into employe3 values
+(105,'Sejal panwar','IT',10000,'2020-12-04','2005-11-15');
+
+delete from employe3
+where empid=104;
+
+select * from employe3;
+
+update employe3
+set salary=salary+salary*0.10
+where dept="IT";
+
+select ename,salary from employe3 where dept='Sales';
+
+create table dept(
+deptid int primary key,
+deptname varchar(50) not null
+);
+
+desc dept;
+
+create table employee4(
+empid int primary key,
+email varchar(80) unique,
+salary int default(15000) check(salary>0));
+
+
+select * from employee4;
+
+create table payroll(
+empid int,
+foreign key(empid) references employee4(empid));
+
+desc payroll;
+
+
+
+select curdate();
+select sysdate();
+select now();
+
+select ename,year(doj) from employe3;
+
+select datediff(curdate(),doj) from employe3;
+
+select date_add(doj,interval 90 day) from employe3;
+
+select count(empid),sum(salary) from employe3;
+
+select avg(salary),min(salary),max(salary) from employe3;
+
+select * from employe3;
+
+select dept,count(*),sum(salary) from employe3 group by dept;
+
+select dept from employe3 where salary>=40000;
+
+
+CREATE TABLE employees1 (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    salary INT,
+    age INT,
+    department VARCHAR(30)
+);
+
+use debugshala;
+
+INSERT INTO employees1 (id, name, salary, age, department)
+VALUES
+(1, 'Amit', 30000, 22, 'IT'),
+(2, 'Ravi', 45000, 25, 'HR'),
+(3, 'Priya', 60000, 28, 'IT'),
+(4, 'Neha', 35000, 24, 'Sales'),
+(5, 'Rahul', 70000, 30, 'IT'),
+(6, 'Sneha', 50000, 27, 'HR'),
+(7, 'Raj', 40000, 23, 'Sales'),
+(8, 'Pooja', 55000, 26, 'IT'),
+(9, 'Karan', 25000, 21, 'HR'),
+(10, 'Anjali', 65000, 29, 'Sales');
+
+select * from employees1 where salary>=40000;
+select * from employees1 where age<=25;
+select * from employees1 where department="IT";
+select * from employees1 where salary!=35000;
+select * from employees1 where salary between 30000 and 60000;
+select * from employees1 where department in ("HR","IT");
+select * from employees1 where name like "R%";
+select * from employees1 where name like "%a";
+select * from employees1 where department="IT" and salary>50000;
+select * from employees1 where department="IT" or department="HR";
+select * from employees1 where not department ="IT";
+select * from employees1 where age>24 and salary<60000;
+select * from employees1 where department="Sales" or salary>60000;
+select * from employees1 where department!="HR" and salary between 35000 and 75000;
+select * from employees1 where (department="IT" and salary>50000) or (department="HR" and salary>50000);
+
+select * from employees1;
+
+
+
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50),
+    location VARCHAR(50)
+);
+
+INSERT INTO departments (dept_id, dept_name, location) VALUES
+(1, 'IT', 'Mumbai'),
+(2, 'HR', 'Delhi'),
+(3, 'Finance', 'Pune'),
+(4, 'Marketing', 'Chennai');
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    salary DECIMAL(10,2),
+    dept_id INT
+);
+
+INSERT INTO employees (emp_id, emp_name, salary, dept_id) VALUES
+(1, 'Rahul', 60000, 1),
+(2, 'Priya', 45000, 2),
+(3, 'Amit', 75000, 1),
+(4, 'Sneha', 50000, 3),
+(5, 'Rohan', 30000, 2),
+(6, 'Pooja', 90000, 1),
+(7, 'Vikram', 40000, 3),
+(8, 'Neha', 55000, NULL);
+
+
+select * from employees,departments;
+select e.emp_name,e.salary,d.dept_name,d.location from employees as e inner join departments as d on e.dept_id=d.dept_id;
+select e.emp_name,e.salary,d.dept_name,d.location from employees as e left join departments as d on e.dept_id=d.dept_id;
+select e.emp_name,e.salary,d.dept_name,d.location from employees as e right join departments as d on e.dept_id=d.dept_id;
+select e.emp_name,e.salary,d.dept_name,d.location from employees as e left join departments as d on e.dept_id=d.dept_id -- fullouter join
+union select e.emp_name,e.salary,d.dept_name,d.location from employees as e right join departments as d on e.dept_id=d.dept_id;
+
+select e.emp_name,e.salary,d.dept_name,d.location from employees as e left join departments as d on e.dept_id=d.dept_id; -- cross join
+
+
+create table school(
+name varchar(20),
+stu_id int primary key,
+section varchar(20)
+);
+
+create table students(
+name varchar(20),
+stu_id int primary key,
+house varchar(20)
+);
+
+drop table students;
+
+insert into students values
+("lakshay",1,"blue"),
+("pranjal",2,"yellow"),
+("lokesh",3,"red");
+
+insert into school values
+("abc academy",1,"A"),
+("def academy",2,"B"),
+("gih academy",3,"C");
+
+
+
+select st.name,sc.name,sc.section,sc.stu_id,st.house from school as sc inner join students as st on sc.stu_id=sc.stu_id;
+select st.name,sc.name,sc.section,sc.stu_id,st.house from school as sc left join students as st on sc.stu_id=sc.stu_id;
+select st.name,sc.name,sc.section,sc.stu_id,st.house from school as sc right join students as st on sc.stu_id=sc.stu_id;
+select st.name,sc.name,sc.section,sc.stu_id,st.house from school as sc left join students as st on sc.stu_id=sc.stu_id union 
+select st.name,sc.name,sc.section,sc.stu_id,st.house from school as sc right join students as st on sc.stu_id=sc.stu_id;
+
+
+create table emp(
+id int,
+name varchar(50),
+HR int,
+age int);
+
+insert into emp values(103,"preet",106,23),
+(101,"Divya",103,22),
+(102,"shushil",103,23),
+(104,"pooja",106,23),
+(105,"minal",106,26),
+(106,"sangita",106,24);
+
+
+select * from emp;
+
+select e.id,r.hr,r.id,e.name,e.age from emp as e join emp as r on e.id=r.hr;
+
+select * from school as sc cross join students as st ;
+
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50)
+);
+
+CREATE TABLE colors (
+    color_id INT PRIMARY KEY,
+    color_name VARCHAR(50)
+);
+
+INSERT INTO products (product_id, product_name) VALUES
+(1, 'T-Shirt'),
+(2, 'Mug'),
+(3, 'Cap');
+
+INSERT INTO colors (color_id, color_name) VALUES
+(1, 'Red'),
+(2, 'Blue'),
+(3, 'Green');
+
+select product_id,color_name from products cross join colors;
+
+select * from employees;
+select distinct(dept_id) from employees;
+
+
+select * from employees order by salary desc limit 1; -- 1st highest salary
+select * from employees order by salary desc limit 1 offset 1; -- 2nd highest salary
+select max(salary) from employees;
+
+CREATE TABLE movies ( movie_id INT PRIMARY KEY , movie_name VARCHAR(50),
+  rating DECIMAL(3,1) , collection INT , industry VARCHAR(30));
+  
+INSERT INTO movies
+(movie_id, movie_name, rating, collection, industry)
+VALUES (1, 'Pushpa', 8.2, 350, 'South'), (2, 'KGF', 9.0, 500, 'South'),(3, 'Dangal', 8.5, 700, 'Bollywood'),(4, 'Pathaan', 7.0, 450, 'Bollywood'),
+(5, 'Bahubali', 9.2, 1000, 'South'),(6, 'War', 6.5, 300, 'Bollywood'),(7, 'Leo', 8.8, 600, 'South');
+
+
+select * from movies where collection = (select max(collection) from movies);
+select * from movies where collection = (select min(collection) from movies);
+select avg(collection) from movies;
+select * from movies where collection >= (select avg(collection) from movies);
+select * from movies where rating >= (select avg(rating) from movies);
+
+-- select * from movies order by collection desc limit 1 offset 1;
+select * from movies where collection = (select max(collection) from movies where collection  < (select max(collection) from movies));
+
+
+select * from employees1 where salary >= 30000; -- Q1
+select * from employees1 where age <=25; -- Q2
+select * from employees1 where department="hr"; -- Q3
+select * from employees1 where department="hr" and salary>=25000; -- Q4
+select * from employees1 where department in ("HR","IT"); -- Q5
+select * from employees1 where salary!=25000; -- Q6
+select * from employees1 where salary between 20000 and 50000; -- Q7
+select * from employees1 where department = "HR" or department = "Sales"; -- Q8
+select * from employees1 where name like "a%"; -- Q9
+select * from employees1 where name like "%n"; -- Q10
+select * from employees1 where name like "%a%"; -- Q11
+select * from employees1 where salary is null; -- Q12
+select count(*) from employees1; -- Q13
+select sum(salary) from employees1 ; -- Q14
+select avg(salary) from employees1; -- Q15
+select max(salary) from employees1; -- Q16
+select count(*),department from employees1 group by department; -- Q17
+-- select * from employees1 where department ; -- Q18
+select curdate(); -- Q19
+select curtime(); -- Q20
+select now(); -- Q21
+select year(doj) from employe3; -- Q22
+select month(doj) from employe3; -- Q23
+
+select * from employees;
+select * from departments;
+select * from employees as emp inner join departments as dept on emp.dept_id = dept.dept_id; -- Q24
+select * from employees as emp left join departments as dept on emp.dept_id = dept.dept_id; -- Q25
+select * from employees as emp right join departments as dept on emp.dept_id = dept.dept_id; -- Q26
+
+alter table employees
+drop manager;
+
+
+
+
+select r.emp_name,r.dept_id,s.emp_id from employees as r join employees as s on r.dept_id = s.emp_id; -- Q27
+
+create table pr(
+name varchar(80) primary key,
+age int);
+desc pr; -- Q28
+
+create table lp(
+name varchar(80),
+age int,
+foreign key(name) references pr(name)); -- Q29
+
+desc lp;
+
+create table lok(
+name varchar(80) unique,
+age int);
+desc lok; -- Q30
+
+create table cpk_t(
+name varchar(50),
+age int,
+surname varchar(50),
+primary key(name,age)
+); -- Q31
+desc cpk_t;
+
+create table candi( -- Q32
+name varchar(50) primary key,
+age int,
+surname varchar(50),
+unique(name,age)
+);
+desc candi;
+
+select * from employees1 order by salary desc limit 3; -- Q33
+select * from employees1 order by salary desc limit 1 offset 1; -- Q34
+select * from employees1 order by name; -- Q35
+select distinct(department) from employees1; -- Q36
+select * from employees1 where age>25; -- Q37
+select * from employe3 where doj>=2023; -- Q38
+
+
+
+
