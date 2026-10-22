@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        h1::first-line{
+            background-color: red;
+            color: yellowgreen;
+        }
+        p::first-letter{
+            background-color: red;
+        }
+        ul::before{
+            content: url(../DAY6-CSS/images.webp);
+        }
+        ul::after{
+            content: url(../DAY6-CSS/images.webp);
+        }
+        ul li::marker{
+            content: '😂';
+        }
+        ul li+li::marker{
+            content: '😊';
+        }
+        ul li+li+li::marker{
+            content: '❤️';
+        }
+        h2::selection{
+            color: red;
+            background-color: yellow;
+        }
+
+    </style>
+  </head>
+  <body>
+    <h1>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem neque, id
+      ipsam ab quam maiores accusantium officiis ipsum impedit laboriosam
+      reprehenderit provident quia quibusdam iure mollitia tenetur! Ratione ut
+      ad excepturi doloribus quo sunt ipsa voluptatem sequi, suscipit odit dolor
+      adipisci labore odio natus nesciunt porro veritatis! Repellat, minima
+      dolor.
+    </h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo tempora
+      sapiente consequatur adipisci ea molestias ipsam laudantium dolor cumque
+      exercitationem! Maxime facere asperiores maiores labore excepturi,
+      accusantium architecto totam placeat id eius repellendus alias inventore
+      repudiandae reprehenderit quod voluptatibus omnis vero ipsum quo itaque,
+      dicta obcaecati quidem suscipit. Sunt, minus.
+    </p>
+    <ul>
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
+    </ul>
+    <h2>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+      temporibus alias quod. Iste non facere consequatur error sint
+      reprehenderit illo nihil ipsa quia minus. Fugiat nulla omnis
+      exercitationem maxime consequuntur ab aliquam ducimus voluptate pariatur
+      tenetur consectetur tempora, suscipit, ipsa quaerat voluptates aspernatur
+      unde nesciunt voluptatum dolorem fuga obcaecati! Cupiditate.
+    </h2>
+  </body>
+</html>

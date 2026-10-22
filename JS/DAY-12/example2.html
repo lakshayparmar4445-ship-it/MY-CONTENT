@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="email" placeholder="john@gmail.com" id="email"> <br>
+        <input type="password" placeholder="Enter the password" id="pass"> <br>
+        <input type="text" id="address"> <br>
+        <input type="tel" id="phone"> <br>
+        <button id="btn">Submit</button> <br><br>
+
+
+        <input type="email" placeholder="getdataemail" id="email1"><br>
+        <button id="btn1">getdata</button>
+        <p id="result"></p>
+    </form>
+        <script>
+            
+            const btn = document.getElementById('btn')
+            btn.onclick = function(){
+                const email = document.getElementById("email").value 
+                const pass = document.getElementById("pass").value 
+                const address = document.getElementById("address").value
+                const phone = document.getElementById("phone").value
+                const userData = {
+                    pass,
+                    address,
+                    phone
+                }
+                window.localStorage.setItem(email,JSON.stringify(userData))
+                alert("DAta saved")
+            }
+
+            const btn1 = document.getElementById('btn1')
+            btn1.onclick = function(e){
+                e.preventDefault();
+                const email1 = document.getElementById("email1").value
+                const data = window.localStorage.getItem(email1)
+                const userData1 = JSON.parse(data)
+                if(data!==null){
+                    document.getElementById("result").textContent=userData1.address+' '+userData1.phone
+                }else{
+                    document.getElementById("result").textContent = "data not found"
+                }
+            }    
+        </script>
+    
+    
+</body>
+</html>

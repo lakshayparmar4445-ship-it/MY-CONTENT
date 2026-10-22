@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            background-color: aqua;
+        }
+        #box{
+            height: 200px;
+            width: 200px;
+            border: 1px solid;
+            background-color: red;
+            position: relative;
+
+            /* animation-name: Debugshala; */
+            animation-name: Indore;
+            /* animation-duration: 3s; */
+            animation-duration: 8s;
+
+            /* animation-iteration-count: 3; */
+            /* animation-iteration-count: infinite; */
+            
+            /* animation-timing-function: ease-in; */
+            /* animation-timing-function: ease-out; */
+            /* animation-timing-function: ease-in-out; */
+
+            /* animation-direction: alternate; */
+            /* animation-direction: reverse; */
+            /* animation-direction: alternate-reverse; */
+
+        }
+        @keyframes Debugshala{
+            from{
+                width: 200px;
+            }
+            to{
+                width: 1000px;
+            }
+        }
+        @keyframes Indore{
+            0%{
+                left: 0px;
+                top: 0px;
+            }
+            25%{
+                left: 0px;
+                top: 200px;
+            }
+            50%{
+                left: 200px;
+                top: 200px;
+            }
+            75%{
+                left: 200px;
+                top: 0px;
+                background-color: green;
+            }
+            100%{
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+</body>
+</html>

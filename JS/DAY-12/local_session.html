@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="email" placeholder="john@gmail.com" id="email"> <br>
+        <input type="password" placeholder="Enter the password" id="pass"> <br>
+        <button id="btn">Submit</button>
+        <input type="email1" placeholder="getdataemail" id="email1"><br>
+        <button id="btn1">getdata</button>
+        <p id="result"></p>
+    </form>
+        <script>
+            
+            const btn = document.getElementById('btn')
+            btn.onclick = function(){
+                const email = document.getElementById("email").value 
+                const pass = document.getElementById("pass").value 
+                window.localStorage.setItem(email,pass)
+                alert("DAta saved")
+            }
+
+            const btn1 = document.getElementById('btn1')
+            btn1.onclick = function(e){
+                e.preventDefault();
+                const email1 = document.getElementById("email1").value
+                const data = window.localStorage.getItem(email1)
+                if(data!==null){
+                    document.getElementById("result").textContent=data
+                }else{
+                    document.getElementById("result").textContent = "data not found"
+                }
+            }    
+        </script>
+    
+    
+</body>
+</html>

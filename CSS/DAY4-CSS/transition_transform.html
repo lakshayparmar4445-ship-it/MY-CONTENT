@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            border: 1px solid;
+            margin-left: 100px;
+        }
+        #translate-box{
+            background-color: blue;
+            transition: transform 5s;
+        }
+        #translate-box:hover{
+            transform: translate(100px,200px);
+        }
+        #scale-box{
+            background-color: red;
+            transition: transform 3s;
+        }
+        #scale-box:hover{
+            transform:scale(1.2)
+        }
+        #roatate-box{
+            background-color: blue;
+            transition: transform 3s;
+        }
+        #roatate-box:hover{
+            transform:rotate(30deg);
+        }
+        #skew-box{
+            background-color: blueviolet;
+            transition: transform 3s;
+        }
+        #skew-box:hover{
+            transform:skew(20deg)
+        }
+        #short-box{
+            background-color: yellow;
+            transition: transform 3s;
+        }
+        #short-box:hover{
+            transform:scale(1.2) skew(20deg) rotate(30deg) scale(1.2) translate(100px,200px);
+        }
+    </style>
+</head>
+<body>
+    <div id="translate-box"></div>
+    <div id="scale-box"></div>
+    <div id="roatate-box"></div>
+    <div id="skew-box"></div>
+    <div id="short-box"></div>
+    <button id="short-box">Submit</button>
+</body>
+</html>

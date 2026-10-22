@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form action="" style="border: 1px solid; border-radius: 5px;">
+        <fieldset>
+        <legend>Registration</legend>
+        <label for="">FirstName</label>
+        <input type="text" placeholder="FirstName"><br>
+        LastName: <input type="text" placeholder="Enter LastName"><br>
+        Email: <input type="email" placeholder="@gmail.com" required autofocus><br>
+        Password: <input type="password" minlength="8" maxlength="12"><br>
+        Phone: <input type="tel" value="6567576567" readonly><br>
+        Age: <input type="number"><br>
+
+        <label for="gen">Gender</label><br>
+        <input type="radio" name="gen">Male
+        <input type="radio" name="gen">Female
+        <input type="radio" name="gen">Others <br>
+
+        <label for="hob">Hobbies</label><br>
+        <input type="checkbox" name="gen">Playing
+        <input type="checkbox" name="gen">Swimming
+        <input type="checkbox" name="gen">Singing <br>
+
+        range : <input type="range"> <br>
+
+        Course : <br><select name="" id="" required>
+            <option value=" "></option>
+            <option value="MCA">MCA</option>
+            <option value="BCA">BCA</option>
+            <option value="BTech">Btech</option>
+        </select> <br>
+
+        Date : <input type="date"> <br>
+        Datetime : <input type="datetime"> <br>
+        Datetime : <input type="datetime-local"> <br>
+
+
+
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+
+        </fieldset>
+
+    </form>
+</body>
+</html>

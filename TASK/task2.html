@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #su {
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body style="background-color: greenyellow">
+    <h2 style="text-align: center; color: red">Personal Details</h2>
+    <form action="" style="text-align: center">
+      Name : <input type="text" required /><br /><br />
+      Password :
+      <input type="password" minlength="8" maxlength="8" required /><br /><br />
+      Email : <input type="email" required /><br /><br />
+      <label for="gen">Gender:</label>
+      <input type="radio" name="gen" required />Male
+      <input type="radio" name="gen" required />Female
+      <input type="radio" name="gen" required />Others <br /><br />
+      Contact# : <input type="tel" minlength="10" maxlength="10" required />
+      <h2 style="text-align: center; color: red">Educational Qualification</h2>
+      <br />
+      Degree :
+      <select name="" id="" required>
+        <option value="" disabled selected hidden>--select group--</option>
+        <option value="">BTech</option>
+        <option value="">BA</option></select
+      ><br /><br />
+      Engineering :
+      <select name="" id="" required>
+        <option value="" disabled selected hidden>--select group--</option>
+        <option value="">CSE</option>
+        <option value="">Machanical</option></select
+      ><br /><br />
+      <label for="ch">Hobbies:</label>
+      <input type="checkbox" name="ch" required />Playing Chess
+      <input type="checkbox" name="ch" required />Reading Books <br />
+      <h2 style="text-align: center; color: red">Address :</h2>
+      <textarea name="" id="" required></textarea><br /><br />
+      Attach : <input type="file" /><br /><br />
+      <button type="Submit" id="su"><h2>SUBMIT</h2></button>
+    </form>
+  </body>
+</html>

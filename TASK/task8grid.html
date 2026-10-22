@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 100px 100px 100px;
+            /* border: 2px solid; */
+            gap: 15px;
+            padding: 20px;
+            /* height: 500px; */
+        }
+        .dd{
+            border: 2px solid;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #d1{
+            grid-row: span 3;
+            background-color: greenyellow;
+        }
+        #d2{
+            grid-column: span 2;
+            background-color: greenyellow;
+        }
+        #d8{
+            grid-row: span 2;
+            background-color: greenyellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="d1" class="dd">BOX-1</div>
+        <div id="d2" class="dd">BOX-2</div>
+        <!-- <div id="d3" class="dd">BOX-3</div> -->
+        <div id="d4" class="dd">BOX-3</div>
+        <!-- <div id="d5" class="dd">BOX-5</div> -->
+        <div id="d6" class="dd">BOX-4</div>
+        <div id="d7" class="dd">BOX-5</div>
+        <div id="d8" class="dd">BOX-6</div>
+        <!-- <div id="d9" class="dd">BOX-9</div> -->
+        <div id="d10" class="dd">BOX-7</div>
+        <div id="d11" class="dd">BOX-8</div>
+        <!-- <div id="d12" class="dd">BOX-12</div> -->
+    </div>
+</body>
+</html>
